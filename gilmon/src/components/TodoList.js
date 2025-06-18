@@ -8,7 +8,7 @@ function TodoList() {
   const [editId, setEditId] = useState(null);
   const [editText, setEditText] = useState('');
 
-  
+
   const addTodo = () => {
     if (newTodo.trim() !== '') {
       setTodos([...todos, {
@@ -19,7 +19,6 @@ function TodoList() {
       setNewTodo('');
     }
   };
-
   
   const deleteTodo = (id) => {
     setTodos(todos.filter(todo => todo.id !== id));
@@ -32,13 +31,11 @@ function TodoList() {
     ));
   };
 
-  
   const startEdit = (todo) => {
     setEditId(todo.id);
     setEditText(todo.text);
   };
 
-  
   const saveEdit = (id) => {
     setTodos(todos.map(todo => 
       todo.id === id ? { ...todo, text: editText } : todo
@@ -46,11 +43,11 @@ function TodoList() {
     setEditId(null);
   };
 
-  
   const cancelEdit = () => {
     setEditId(null);
   };
 
+  
   return (
     <div className="todo">
       <h1>Todo List</h1>
